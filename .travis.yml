@@ -1,0 +1,10 @@
+sudo: required
+services:
+    - docker
+before-install:
+    - docker build -t joewardcp/docker-react -f Dockerfile.dev .
+
+scripts:
+    - docker run -e CI=true jowardcp/docker-react npm run test -- --coverage
+
+
